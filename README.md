@@ -6,7 +6,7 @@
 
 | 模块 | 技术 |
 |------|------|
-| 后端 | Spring Boot 2.x + MyBatis + MySQL |
+| 后端 | Spring Boot 3.3.x + MyBatis + MySQL |
 | 管理端前端 | Vue 3 + Element Plus + Vite |
 | 用户端小程序 | uni-app（支持微信/支付宝小程序） |
 | AI 功能 | DeepSeek API 智能对话 |
@@ -48,7 +48,7 @@ mental-health-platform/
 
 ## 环境要求
 
-- JDK 8+
+- JDK 17+（Spring Boot 3.x 要求）
 - Maven 3.6+
 - MySQL 5.7+ / 8.0+
 - Node.js 16+（前端开发时需要）
@@ -106,7 +106,27 @@ npm run build
 
 ### 5. 小程序配置
 
-使用 HBuilderX 打开 `miniprogram` 目录，修改 `config.js` 中的 API 地址为后端地址，然后运行到微信开发者工具。
+使用 HBuilderX 打开 `miniprogram` 目录，修改 `config.js` 中的 `baseUrl` 为你的后端地址，然后运行到微信开发者工具。
+
+```js
+// miniprogram/config.js
+const config = {
+    baseUrl: 'http://你的服务器IP:9090/mental/api', // 部署时修改
+    url: 'http://你的服务器IP:9090'
+}
+```
+
+## 部署前必须修改的配置清单
+
+| 文件 | 配置项 | 说明 |
+|------|--------|------|
+| `backend/src/main/resources/application.yml` | `spring.datasource.password` | 数据库密码 |
+| `backend/src/main/resources/application.yml` | `fileBaseUrl` | 部署后改为服务器地址 |
+| `backend/src/main/resources/application.yml` | `deepseek.apiKey` | AI 对话 API Key（可选） |
+| `frontend/.env.production` | `VITE_BASE_URL` | 前端生产环境 API 地址 |
+| `miniprogram/config.js` | `baseUrl` / `url` | 小程序后端 API 地址 |
+
+> 以上文件中，`application.yml` 已被 `.gitignore` 排除，不会上传到 GitHub；其余文件为默认占位地址，部署前需修改。
 
 ## 云服务器部署
 

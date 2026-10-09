@@ -1,8 +1,9 @@
 // 应用全局配置
+// 部署到云服务器时，请将下方地址修改为你的服务器实际地址
 const config = {
 	// baseUrl: '/mental/api', // 使用相对路径，通过nginx代理访问后端
-	baseUrl: 'http://202.115.17.253:52531/mental/api', // 服务器公共地址，必须包含/api，因为Nginx配置要求/mental/api/开头的路径
-	url: "http://202.115.17.253:52531"
+	baseUrl: 'http://localhost:9090/mental/api', // 本地开发地址，部署时修改为服务器地址
+	url: "http://localhost:9090" // 服务器基础地址，部署时修改
 	// baseUrl: 'http://192.168.13.5:8096/autoeeprovueapp',
 }
 export default config
