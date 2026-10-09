@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 对话框 -->
+  <rect x="40" y="40" width="120" height="100" rx="20" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="4"/>
+  <!-- 对话气泡点 -->
+  <circle cx="70" cy="90" r="8" fill="#E0E0E0"/>
+  <circle cx="100" cy="90" r="8" fill="#E0E0E0"/>
+  <circle cx="130" cy="90" r="8" fill="#E0E0E0"/>
+  <!-- 底部箭头 -->
+  <path d="M100 140L80 160H120L100 140Z" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="4"/>
+</svg> 

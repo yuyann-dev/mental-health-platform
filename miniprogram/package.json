@@ -1,0 +1,25 @@
+{
+  "name": "mental-health-consultation",
+  "version": "1.0.0",
+  "description": "心理健康咨询端",
+  "main": "main.js",
+  "scripts": {
+    "dev:h5": "uni -p h5",
+    "build:h5": "uni build -p h5"
+  },
+  "keywords": [
+    "uni-app",
+    "mental-health"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@dcloudio/uni-app": "*",
+    "vue": "^2.6.14"
+  },
+  "devDependencies": {
+    "@dcloudio/uni-cli-shared": "^2.0.2-4080420251103001",
+    "@dcloudio/uni-h5": "^2.0.2-4080420251103001",
+    "@vue/cli-service": "^5.0.9"
+  }
+}

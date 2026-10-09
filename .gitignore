@@ -1,0 +1,48 @@
+# ==== Java / Spring Boot ====
+backend/target/
+*.class
+*.jar
+*.war
+*.log
+logs/
+
+# ==== IDE ====
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+.settings/
+
+# ==== Node / Vue ====
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+*.local
+
+# ==== 小程序 uni-app ====
+miniprogram/node_modules/
+miniprogram/unpackage/
+miniprogram/dist/
+miniprogram/.hbuilderx/
+miniprogram/.vite/
+miniprogram/.ftp/
+
+# ==== 敏感配置（保留 .example 模板） ====
+backend/src/main/resources/application.yml
+
+# ==== 用户上传文件（保留 .gitkeep） ====
+backend/files/*
+!backend/files/.gitkeep
+
+# ==== 系统文件 ====
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# ==== 压缩包 ====
+*.zip
+*.7z
+*.rar

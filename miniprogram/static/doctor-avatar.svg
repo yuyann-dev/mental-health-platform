@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景圆 -->
+  <circle cx="100" cy="100" r="100" fill="#E1F5FE"/>
+  <!-- 头部 -->
+  <circle cx="100" cy="70" r="40" fill="#2196F3"/>
+  <!-- 身体 -->
+  <path d="M50 180C50 140 70 120 100 120C130 120 150 140 150 180" fill="#2196F3"/>
+  <!-- 听诊器 -->
+  <circle cx="120" cy="140" r="10" fill="#FFF"/>
+  <path d="M110 140C110 140 115 150 125 155" stroke="#FFF" stroke-width="4"/>
+</svg> 

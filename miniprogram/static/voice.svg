@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 麦克风 -->
+  <rect x="80" y="40" width="40" height="80" rx="20" fill="#333333"/>
+  <path d="M60 100C60 120 80 140 100 140C120 140 140 120 140 100" stroke="#333333" stroke-width="12" stroke-linecap="round"/>
+  <line x1="100" y1="140" x2="100" y2="170" stroke="#333333" stroke-width="12" stroke-linecap="round"/>
+  <line x1="70" y1="170" x2="130" y2="170" stroke="#333333" stroke-width="12" stroke-linecap="round"/>
+</svg> 

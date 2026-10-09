@@ -1,0 +1,94 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.TopicMapper">
+
+    <select id="selectAll" resultType="com.example.entity.Topic">
+        select topic.*, type.title as typeName from `topic`
+        left join type on topic.type_id = type.id
+        <where>
+            <if test="title != null"> and topic.title like concat('%', #{title}, '%')</if>
+            <if test="typeName != null"> and type.title = #{typeName}</if>
+            <if test="typeId != null"> and topic.type_id = #{typeId}</if>
+        </where>
+        order by id desc
+    </select>
+
+    <delete id="deleteById">
+        delete from `topic`
+        where id = #{id}
+    </delete>
+
+    <insert id="insert" parameterType="com.example.entity.Topic" useGeneratedKeys="true">
+        insert into `topic`
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="title != null">title,</if>
+            <if test="typeId != null">type_id,</if>
+            <if test="aName != null">a_name,</if>
+            <if test="bName != null">b_name,</if>
+            <if test="cName != null">c_name,</if>
+            <if test="dName != null">d_name,</if>
+            <if test="aScore != null">a_score,</if>
+            <if test="bScore != null">b_score,</if>
+            <if test="cScore != null">c_score,</if>
+            <if test="dScore != null">d_score,</if>
+            <if test="score != null">score,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="title != null">#{title},</if>
+            <if test="typeId != null">#{typeId},</if>
+            <if test="aName != null">#{aName},</if>
+            <if test="bName != null">#{bName},</if>
+            <if test="cName != null">#{cName},</if>
+            <if test="dName != null">#{dName},</if>
+            <if test="aScore != null">#{aScore},</if>
+            <if test="bScore != null">#{bScore},</if>
+            <if test="cScore != null">#{cScore},</if>
+            <if test="dScore != null">#{dScore},</if>
+            <if test="score != null">#{score},</if>
+        </trim>
+    </insert>
+
+    <update id="updateById" parameterType="com.example.entity.Topic">
+        update `topic`
+        <set>
+            <if test="title != null">
+                title = #{title},
+            </if>
+            <if test="typeId != null">
+                type_id = #{typeId},
+            </if>
+            <if test="aName != null">
+                a_name = #{aName},
+            </if>
+            <if test="bName != null">
+                b_name = #{bName},
+            </if>
+            <if test="cName != null">
+                c_name = #{cName},
+            </if>
+            <if test="dName != null">
+                d_name = #{dName},
+            </if>
+            <if test="aScore != null">
+                a_score = #{aScore},
+            </if>
+            <if test="bScore != null">
+                b_score = #{bScore},
+            </if>
+            <if test="cScore != null">
+                c_score = #{cScore},
+            </if>
+            <if test="dScore != null">
+                d_score = #{dScore},
+            </if>
+            <if test="score != null">
+                score = #{score},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+</mapper>

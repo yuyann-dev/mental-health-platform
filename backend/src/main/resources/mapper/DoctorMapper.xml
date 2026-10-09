@@ -1,0 +1,102 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.DoctorMapper">
+
+    <select id="selectAll" resultType="com.example.entity.Doctor">
+        select * from `doctor`
+        <where>
+            <if test="name != null"> and name like concat('%', #{name}, '%')</if>
+            <if test="status != null"> and status = #{status}</if>
+        </where>
+    </select>
+    <select id="selectByUserName" resultType="com.example.entity.Doctor">
+        select * from `doctor` where username=#{username}
+    </select>
+
+    <delete id="deleteById">
+        delete from `doctor`
+        where id = #{id}
+    </delete>
+
+    <insert id="insert" parameterType="com.example.entity.Doctor" useGeneratedKeys="true">
+        insert into `doctor`
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="username != null">username,</if>
+            <if test="password != null">password,</if>
+            <if test="name != null">name,</if>
+            <if test="phone != null">phone,</if>
+            <if test="email != null">email,</if>
+            <if test="avatar != null">avatar,</if>
+            <if test="role != null">role,</if>
+            <if test="seniority != null">seniority,</if>
+            <if test="content != null">content,</if>
+            <if test="code != null">code,</if>
+            <if test="certificate != null">certificate,</if>
+            <if test="mbwt != null">mbwt,</if>
+            <if test="status != null">status,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="username != null">#{username},</if>
+            <if test="password != null">#{password},</if>
+            <if test="name != null">#{name},</if>
+            <if test="phone != null">#{phone},</if>
+            <if test="email != null">#{email},</if>
+            <if test="avatar != null">#{avatar},</if>
+            <if test="role != null">#{role},</if>
+            <if test="seniority != null">#{seniority},</if>
+            <if test="content != null">#{content},</if>
+            <if test="code != null">#{code},</if>
+            <if test="certificate != null">#{certificate},</if>
+            <if test="mbwt != null">#{mbwt},</if>
+
+            <if test="status != null">#{status},</if>
+        </trim>
+    </insert>
+
+    <update id="updateById" parameterType="com.example.entity.Doctor">
+        update `doctor`
+        <set>
+            <if test="username != null">
+                username = #{username},
+            </if>
+            <if test="password != null">
+                password = #{password},
+            </if>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="phone != null">
+                phone = #{phone},
+            </if>
+            <if test="email != null">
+                email = #{email},
+            </if>
+            <if test="avatar != null">
+                avatar = #{avatar},
+            </if>
+            <if test="role != null">
+                role = #{role},
+            </if>
+            <if test="seniority != null">
+                seniority = #{seniority},
+            </if>
+            <if test="content != null">
+                content = #{content},
+            </if>
+            <if test="code != null">
+                code = #{code},
+            </if>
+            <if test="certificate != null">
+                certificate = #{certificate},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+</mapper>

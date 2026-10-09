@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 图片外框 -->
+  <rect x="40" y="40" width="120" height="120" rx="10" stroke="#333333" stroke-width="12"/>
+  <!-- 太阳 -->
+  <circle cx="70" cy="70" r="15" fill="#333333"/>
+  <!-- 山 -->
+  <path d="M40 160L80 100L120 140L160 80V160H40Z" fill="#333333"/>
+</svg> 

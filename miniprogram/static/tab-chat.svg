@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 左侧对话框 -->
+  <rect x="30" y="60" width="80" height="60" rx="16" fill="#C0C4CC"/>
+  <path d="M50 120L40 140L60 120H50Z" fill="#C0C4CC"/>
+  <!-- 右侧对话框 -->
+  <rect x="90" y="80" width="80" height="60" rx="16" fill="#C0C4CC"/>
+  <path d="M150 140L140 160L160 140H150Z" fill="#C0C4CC"/>
+</svg> 

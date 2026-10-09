@@ -1,0 +1,134 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.TestPaperMapper">
+
+    <select id="selectAll" resultType="com.example.entity.TestPaper">
+        select test_paper.*, type.title as typeName, doctor.name as doctorName, doctor.avatar as doctorAvatar 
+        from `test_paper`
+        left join type on test_paper.type_id = type.id
+        left join doctor on test_paper.doctor_id = doctor.id
+        <where>
+            <choose>
+                <when test="status != null">
+                    test_paper.status = #{status}
+                </when>
+                <otherwise>
+                    test_paper.status = '审核通过'
+                </otherwise>
+            </choose>
+            <if test="typeName != null and typeName != ''">
+                and type.title = #{typeName}
+            </if>
+            <if test="doctorId != null">
+                and test_paper.doctor_id = #{doctorId}
+            </if>
+            <if test="title != null and title != ''">
+                and test_paper.title like concat('%', #{title}, '%')
+            </if>
+        </where>
+        order by id desc
+    </select>
+
+    <delete id="deleteById">
+        delete from `test_paper`
+        where id = #{id}
+    </delete>
+
+    <insert id="insert" parameterType="com.example.entity.TestPaper" useGeneratedKeys="true">
+        insert into `test_paper`
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="title != null">title,</if>
+            <if test="content != null">content,</if>
+            <if test="time != null">time,</if>
+            <if test="img != null">img,</if>
+            <if test="typeId != null">type_id,</if>
+            <if test="doctorId != null">doctor_id,</if>
+            <if test="num != null">num,</if>
+            <if test="score != null">score,</if>
+            <if test="ids != null">ids,</if>
+            <if test="status != null">status,</if>
+            <if test="testNum != null">test_num,</if>
+            <if test="aRange != null">a_range,</if>
+            <if test="bRange != null">b_range,</if>
+            <if test="cRange != null">c_range,</if>
+            <if test="aAnswer != null">a_answer,</if>
+            <if test="bAnswer != null">b_answer,</if>
+            <if test="cAnswer != null">c_answer,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="title != null">#{title},</if>
+            <if test="content != null">#{content},</if>
+            <if test="time != null">#{time},</if>
+            <if test="img != null">#{img},</if>
+            <if test="typeId != null">#{typeId},</if>
+            <if test="doctorId != null">#{doctorId},</if>
+            <if test="num != null">#{num},</if>
+            <if test="score != null">#{score},</if>
+            <if test="ids != null">#{ids},</if>
+            <if test="status != null">#{status},</if>
+            <if test="testNum != null">#{testNum},</if>
+            <if test="aRange != null">#{aRange},</if>
+            <if test="bRange != null">#{bRange},</if>
+            <if test="cRange != null">#{cRange},</if>
+            <if test="aAnswer != null">#{aAnswer},</if>
+            <if test="bAnswer != null">#{bAnswer},</if>
+            <if test="cAnswer != null">#{cAnswer},</if>
+        </trim>
+    </insert>
+
+    <update id="updateById" parameterType="com.example.entity.TestPaper">
+        update `test_paper`
+        <set>
+            <if test="title != null">
+                title = #{title},
+            </if>
+            <if test="content != null">
+                content = #{content},
+            </if>
+            <if test="img != null">
+                img = #{img},
+            </if>
+            <if test="typeId != null">
+                type_id = #{typeId},
+            </if>
+            <if test="num != null">
+                num = #{num},
+            </if>
+            <if test="score != null">
+                score = #{score},
+            </if>
+            <if test="ids != null">
+                ids = #{ids},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="testNum != null">
+                test_num = #{testNum},
+            </if>
+            <if test="aRange != null">
+                a_range = #{aRange},
+            </if>
+            <if test="bRange != null">
+                b_range = #{bRange},
+            </if>
+            <if test="cRange != null">
+                c_range = #{cRange},
+            </if>
+            <if test="aAnswer != null">
+                a_answer = #{aAnswer},
+            </if>
+            <if test="bAnswer != null">
+                b_answer = #{bAnswer},
+            </if>
+            <if test="cAnswer != null">
+                c_answer = #{cAnswer},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+</mapper>

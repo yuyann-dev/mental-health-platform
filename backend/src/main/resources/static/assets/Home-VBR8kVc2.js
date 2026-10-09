@@ -1,0 +1,1 @@
+import{r as t,c as s,a as r,t as o,o as c}from"./index-CS5f7a5N.js";const n={class:"card",style:{"margin-bottom":"5px"}},p={__name:"Home",setup(l){const a=t({user:JSON.parse(localStorage.getItem("xm-user")||"{}")});return(m,_)=>{var e;return c(),s("div",null,[r("div",n,"您好！"+o((e=a.user)==null?void 0:e.name)+"，欢迎使用本系统！",1)])}}};export{p as default};

@@ -1,0 +1,51 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.TestRecordMapper">
+    <update id="updateById">
+        update test_record set ai_result = #{aiResult} where id = #{id}
+    </update>
+
+    <select id="selectAll" resultType="com.example.entity.TestRecord">
+        select test_record.*, user.name as userName, test_paper.title as testPaperName, doctor.name as doctorName, type.title as typeName from `test_record`
+        left join test_paper on test_record.test_paper_id = test_paper.id
+        left join user on test_record.user_id = user.id
+        left join doctor on test_record.doctor_id = doctor.id
+        join type on test_paper.type_id = type.id
+        <where>
+            <if test="testPaperName != null"> and test_paper.title like concat('%', #{testPaperName}, '%')</if>
+            <if test="userId != null"> and test_record.user_id = #{userId}</if>
+            <if test="doctorId != null"> and test_paper.doctor_id = #{doctorId}</if>
+        </where>
+        order by id desc
+    </select>
+
+    <delete id="deleteById">
+        delete from `test_record`
+        where id = #{id}
+    </delete>
+
+    <insert id="insert" parameterType="com.example.entity.TestRecord" useGeneratedKeys="true" keyProperty="id">
+        insert into `test_record`
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="testPaperId != null">test_paper_id,</if>
+            <if test="userId != null">user_id,</if>
+            <if test="doctorId != null">doctor_id,</if>
+            <if test="score != null">score,</if>
+            <if test="result != null">result,</if>
+            <if test="time != null">time,</if>
+            <if test="aiResult != null">ai_result,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="testPaperId != null">#{testPaperId},</if>
+            <if test="userId != null">#{userId},</if>
+            <if test="doctorId != null">#{doctorId},</if>
+            <if test="score != null">#{score},</if>
+            <if test="result != null">#{result},</if>
+            <if test="time != null">#{time},</if>
+            <if test="aiResult != null">#{aiResult},</if>
+        </trim>
+    </insert>
+</mapper>
